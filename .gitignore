@@ -1,0 +1,10 @@
+node_modules/
+.next/
+out/
+.env*
+*.log
+.DS_Store
+
+# clone artifacts
+chunks/
+page_data.json
