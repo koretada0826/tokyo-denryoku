@@ -575,62 +575,88 @@ export default function Section2Main() {
       </section>
 
       {/* Various menus */}
-      <section className="max-w-[1100px] mx-auto px-4 py-10">
-        <h2 className="text-[22px] md:text-[26px] font-bold text-gray-900 text-center mb-8">
-          各種メニュー
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+      <section className="max-w-[1100px] mx-auto px-4 py-12 bg-[#fafafa]">
+        <div className="text-center mb-10">
+          <h2 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-3">
+            各種メニュー
+          </h2>
+          <div className="flex justify-center gap-1">
+            <span className="block w-6 h-[3px] bg-[#E60012]"></span>
+            <span className="block w-6 h-[3px] bg-[#0099D9]"></span>
+            <span className="block w-6 h-[3px] bg-[#F2B600]"></span>
+            <span className="block w-6 h-[3px] bg-[#34A853]"></span>
+          </div>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
           {[
             {
               t: "電気トップ",
-              d: "電気のサービス内容、お申込みはこちら",
+              d: "電気に関するサービスの詳細、お申込みはこちら",
+              color: "#E60012",
               icon: (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7" aria-hidden>
-                  <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" />
+                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" className="w-full h-full" aria-hidden>
+                  <path d="M50 12c-13 0-22 9.5-22 22 0 8 4 14 8 18 3 3 4 6 4 10v6h20v-6c0-4 1-7 4-10 4-4 8-10 8-18 0-12.5-9-22-22-22Z" />
+                  <path d="M40 76h20" />
+                  <path d="M42 82h16" />
+                  <path d="M44 88h12" />
+                  <path d="M50 56v-8M42 50h16M44 44l12-12M44 32l12 12" strokeWidth={1.5} />
                 </svg>
               ),
             },
             {
               t: "ガストップ",
-              d: "ガスのサービス内容、お申込みはこちら",
+              d: "ガスに関するサービスの詳細、お申込みはこちら",
+              color: "#0099D9",
               icon: (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7" aria-hidden>
-                  <path d="M12 2.5c1.8 2.6 4.5 4.5 4.5 8a4.5 4.5 0 0 1-9 0c0-2 1-3.2 2-4.3.6-.7 1.1-1.6 1-2.5 0-.4-.1-.8-.2-1.2 0 0 .9-.5 1.7 0Z" />
-                  <path d="M10 16.5a2 2 0 0 0 4 0c0-1.2-1-1.8-1.6-2.6-.4.6-.8 1.2-1.4 1.6-.5.3-1 .6-1 1Z" />
+                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" className="w-full h-full" aria-hidden>
+                  <path d="M52 10c4 12 18 22 18 38 0 14-9 24-20 24s-20-10-20-24c0-7 3-12 6-16 3-4 6-7 6-12 0-2-1-4-2-6 0 0 8-6 12-4Z" />
+                  <path d="M44 56c0 4 3 8 6 8s6-4 6-8c0-3-2-5-4-7-1 2-2 4-4 5-1 1-4 0-4 2Z" strokeWidth={2} />
                 </svg>
               ),
             },
             {
-              t: "お引越し手続き",
-              d: "お引越し時のお手続きはこちら",
+              t: "引越しのお手続き",
+              d: "お引越しに伴うお手続きはこちらから",
+              color: "#F2B600",
               icon: (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7" aria-hidden>
-                  <path d="M2 8h11v9H2z" />
-                  <path d="M13 11h5l3 3v3h-8z" />
-                  <circle cx="6" cy="18.5" r="1.8" />
-                  <circle cx="17" cy="18.5" r="1.8" />
+                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" className="w-full h-full" aria-hidden>
+                  <path d="M10 38h44v34H10z" />
+                  <path d="M54 50h22l14 12v10H54z" />
+                  <circle cx="24" cy="76" r="6" />
+                  <circle cx="72" cy="76" r="6" />
+                  <path d="M20 26h20v16H20z" />
+                  <path d="M22 26v-6h16v6" />
+                  <path d="M30 20v-4" strokeWidth={1.5} />
+                  <path d="M5 32h8M5 42h6M70 38h8M68 28h8" strokeWidth={1.5} />
                 </svg>
               ),
             },
             {
-              t: "契約変更手続き",
-              d: "支払い方法、お名前変更、住所変更等のお手続きはこちら",
+              t: "ご契約内容変更手続き",
+              d: "お支払い方法や名義、住所の変更などご契約内容変更のお手続きはこちら",
+              color: "#F2B600",
               icon: (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7" aria-hidden>
-                  <path d="M4 20h4l10-10-4-4L4 16z" />
-                  <path d="M14 6l4 4" />
-                  <path d="M3 21h18" />
+                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" className="w-full h-full" aria-hidden>
+                  <rect x="14" y="22" width="50" height="34" rx="2" />
+                  <path d="M30 64h18" />
+                  <path d="M28 70h22" />
+                  <rect x="68" y="40" width="20" height="36" rx="3" />
+                  <path d="M68 70h20" strokeWidth={1.5} />
+                  <circle cx="78" cy="73" r="1.2" fill="currentColor" />
+                  <path d="M22 32h34M22 38h34M22 44h22" strokeWidth={1.5} />
                 </svg>
               ),
             },
             {
               t: "くらしTEPCO",
-              d: "「もしものお困りごと」「ふだんのくらし」をサポート",
+              d: "「もしもケア」「いつもケア」でお家まるごとあんしん！くらしを支えるサービスはこちら",
+              color: "#34A853",
               icon: (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7" aria-hidden>
-                  <path d="M3 11 12 3l9 8" />
-                  <path d="M5 10v10h14V10" />
-                  <path d="M10 20v-6h4v6" />
+                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" className="w-full h-full" aria-hidden>
+                  <path d="M14 50 50 18l36 32" />
+                  <path d="M22 46v36h56V46" />
+                  <path d="M42 82V62h16v20" />
+                  <path d="M62 24v6l8 7" strokeWidth={1.5} />
                 </svg>
               ),
             },
@@ -638,16 +664,39 @@ export default function Section2Main() {
             <a
               key={i}
               href="#"
-              className="block bg-white border border-gray-200 rounded-lg p-4 text-center hover:shadow-md transition"
+              className="relative block bg-white rounded-md border-2 overflow-hidden hover:shadow-lg transition group"
+              style={{ borderColor: m.color }}
             >
-              <div className="w-14 h-14 mx-auto mb-3 rounded-full bg-[#fdf3f4] flex items-center justify-center text-tepco-red">
-                {m.icon}
+              <div
+                className="flex items-center justify-center px-3 pt-6 pb-2"
+                style={{ color: m.color }}
+              >
+                <div className="w-[90px] h-[90px] flex items-center justify-center">
+                  {m.icon}
+                </div>
               </div>
-              <h4 className="text-sm font-bold text-gray-900 mb-1">{m.t}</h4>
-              <p className="text-xs text-gray-600 leading-relaxed">{m.d}</p>
-              <span className="inline-block mt-2 text-xs text-tepco-red">
-                詳しく見る &gt;
-              </span>
+              <div
+                className="text-white font-bold text-center text-[13px] md:text-[14px] py-2 px-2 mx-3 rounded-sm"
+                style={{ backgroundColor: m.color }}
+              >
+                {m.t}
+              </div>
+              <div
+                className="h-[3px] mx-3 mt-[2px]"
+                style={{ backgroundColor: m.color, opacity: 0.5 }}
+              />
+              <p className="text-[11px] md:text-[12px] text-gray-700 leading-relaxed px-4 py-3 text-left">
+                {m.d}
+              </p>
+              <svg
+                className="absolute bottom-1 right-1"
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                aria-hidden
+              >
+                <polygon points="12,2 12,12 2,12" fill={m.color} />
+              </svg>
             </a>
           ))}
         </div>
