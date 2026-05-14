@@ -89,15 +89,96 @@ const Section1Header: React.FC = () => {
     { label: "資材調達", href: "https://www.tepco.co.jp/pg/material/" },
   ];
 
-  const mainNav: { label: string; href: string }[] = [
-    { label: "電気", href: "/ep/private/index-j.html" },
-    { label: "ガス", href: "/ep/gas-jiyuuka/index-j.html" },
-    { label: "引越し", href: "/ep/private/moving/index-j.html" },
-    { label: "各種お手続き・サポート", href: "https://www.tepco.co.jp/ep/support/" },
-    { label: "くらしTEPCO", href: "/ep/kurashi-tepco/index-j.html" },
-    { label: "法人のお客さま", href: "/ep/corporate/index-j.html" },
-    { label: "企業情報", href: "/ep/about/index-j.html" },
+  type NavIconKey =
+    | "electric"
+    | "gas"
+    | "moving"
+    | "support"
+    | "lifestyle"
+    | "corporate"
+    | "info";
+
+  const mainNav: { label: string; href: string; icon: NavIconKey }[] = [
+    { label: "電気", href: "/ep/private/index-j.html", icon: "electric" },
+    { label: "ガス", href: "/ep/gas-jiyuuka/index-j.html", icon: "gas" },
+    { label: "引越し", href: "/ep/private/moving/index-j.html", icon: "moving" },
+    { label: "各種お手続き・サポート", href: "https://www.tepco.co.jp/ep/support/", icon: "support" },
+    { label: "くらしTEPCO", href: "/ep/kurashi-tepco/index-j.html", icon: "lifestyle" },
+    { label: "法人のお客さま", href: "/ep/corporate/index-j.html", icon: "corporate" },
+    { label: "企業情報", href: "/ep/about/index-j.html", icon: "info" },
   ];
+
+  const NavIcon: React.FC<{ name: NavIconKey; className?: string }> = ({
+    name,
+    className = "w-6 h-6",
+  }) => {
+    const common = {
+      className,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: 1.8,
+      strokeLinecap: "round" as const,
+      strokeLinejoin: "round" as const,
+      "aria-hidden": true,
+    };
+    switch (name) {
+      case "electric":
+        return (
+          <svg {...common}>
+            <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" />
+          </svg>
+        );
+      case "gas":
+        return (
+          <svg {...common}>
+            <path d="M12 2.5c1.8 2.6 4.5 4.5 4.5 8a4.5 4.5 0 0 1-9 0c0-2 1-3.2 2-4.3.6-.7 1.1-1.6 1-2.5 0-.4-.1-.8-.2-1.2 0 0 .9-.5 1.7 0Z" />
+            <path d="M10 16.5a2 2 0 0 0 4 0c0-1.2-1-1.8-1.6-2.6-.4.6-.8 1.2-1.4 1.6-.5.3-1 .6-1 1Z" />
+          </svg>
+        );
+      case "moving":
+        return (
+          <svg {...common}>
+            <path d="M2 8h11v9H2z" />
+            <path d="M13 11h5l3 3v3h-8z" />
+            <circle cx="6" cy="18.5" r="1.8" />
+            <circle cx="17" cy="18.5" r="1.8" />
+          </svg>
+        );
+      case "support":
+        return (
+          <svg {...common}>
+            <path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z" />
+            <path d="M14 3v5h5" />
+            <path d="M8 13h8M8 17h5" />
+          </svg>
+        );
+      case "lifestyle":
+        return (
+          <svg {...common}>
+            <path d="M3 11 12 3l9 8" />
+            <path d="M5 10v10h14V10" />
+            <path d="M10 20v-6h4v6" />
+          </svg>
+        );
+      case "corporate":
+        return (
+          <svg {...common}>
+            <path d="M4 21V5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v16" />
+            <path d="M15 9h4a1 1 0 0 1 1 1v11" />
+            <path d="M8 8h3M8 12h3M8 16h3" />
+            <path d="M17 13h1M17 17h1" />
+          </svg>
+        );
+      case "info":
+        return (
+          <svg {...common}>
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 8h.01M11 12h1v5h1" />
+          </svg>
+        );
+    }
+  };
 
   return (
     <header
@@ -319,9 +400,10 @@ const Section1Header: React.FC = () => {
                 >
                   <a
                     href={item.href}
-                    className="second-head h-full px-3 xl:px-5 flex items-center text-[14px] xl:text-[15px] font-semibold text-gray-800 hover:text-tepco-red border-b-2 border-transparent hover:border-tepco-red transition-all whitespace-nowrap"
+                    className="second-head h-full px-3 xl:px-4 flex flex-col items-center justify-center gap-1 text-[12px] xl:text-[13px] font-semibold text-gray-800 hover:text-tepco-red border-b-2 border-transparent hover:border-tepco-red transition-all whitespace-nowrap"
                   >
-                    {item.label}
+                    <NavIcon name={item.icon} className="w-6 h-6 text-tepco-red" />
+                    <span>{item.label}</span>
                   </a>
                 </li>
               ))}
@@ -365,9 +447,10 @@ const Section1Header: React.FC = () => {
                   >
                     <a
                       href={item.href}
-                      className="block px-4 py-4 text-[15px] font-semibold text-gray-800 hover:text-tepco-red hover:bg-gray-50"
+                      className="flex items-center gap-3 px-4 py-4 text-[15px] font-semibold text-gray-800 hover:text-tepco-red hover:bg-gray-50"
                     >
-                      {item.label}
+                      <NavIcon name={item.icon} className="w-5 h-5 text-tepco-red shrink-0" />
+                      <span>{item.label}</span>
                     </a>
                   </li>
                 ))}
