@@ -581,16 +581,58 @@ export default function Section2Main() {
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
           {[
-            { t: "電気トップ", d: "電気のサービス内容、お申込みはこちら" },
-            { t: "ガストップ", d: "ガスのサービス内容、お申込みはこちら" },
-            { t: "お引越し手続き", d: "お引越し時のお手続きはこちら" },
+            {
+              t: "電気トップ",
+              d: "電気のサービス内容、お申込みはこちら",
+              icon: (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7" aria-hidden>
+                  <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" />
+                </svg>
+              ),
+            },
+            {
+              t: "ガストップ",
+              d: "ガスのサービス内容、お申込みはこちら",
+              icon: (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7" aria-hidden>
+                  <path d="M12 2.5c1.8 2.6 4.5 4.5 4.5 8a4.5 4.5 0 0 1-9 0c0-2 1-3.2 2-4.3.6-.7 1.1-1.6 1-2.5 0-.4-.1-.8-.2-1.2 0 0 .9-.5 1.7 0Z" />
+                  <path d="M10 16.5a2 2 0 0 0 4 0c0-1.2-1-1.8-1.6-2.6-.4.6-.8 1.2-1.4 1.6-.5.3-1 .6-1 1Z" />
+                </svg>
+              ),
+            },
+            {
+              t: "お引越し手続き",
+              d: "お引越し時のお手続きはこちら",
+              icon: (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7" aria-hidden>
+                  <path d="M2 8h11v9H2z" />
+                  <path d="M13 11h5l3 3v3h-8z" />
+                  <circle cx="6" cy="18.5" r="1.8" />
+                  <circle cx="17" cy="18.5" r="1.8" />
+                </svg>
+              ),
+            },
             {
               t: "契約変更手続き",
               d: "支払い方法、お名前変更、住所変更等のお手続きはこちら",
+              icon: (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7" aria-hidden>
+                  <path d="M4 20h4l10-10-4-4L4 16z" />
+                  <path d="M14 6l4 4" />
+                  <path d="M3 21h18" />
+                </svg>
+              ),
             },
             {
               t: "くらしTEPCO",
               d: "「もしものお困りごと」「ふだんのくらし」をサポート",
+              icon: (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7" aria-hidden>
+                  <path d="M3 11 12 3l9 8" />
+                  <path d="M5 10v10h14V10" />
+                  <path d="M10 20v-6h4v6" />
+                </svg>
+              ),
             },
           ].map((m, i) => (
             <a
@@ -598,8 +640,8 @@ export default function Section2Main() {
               href="#"
               className="block bg-white border border-gray-200 rounded-lg p-4 text-center hover:shadow-md transition"
             >
-              <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-[#fdf3f4] flex items-center justify-center">
-                <span className="text-tepco-red font-bold">●</span>
+              <div className="w-14 h-14 mx-auto mb-3 rounded-full bg-[#fdf3f4] flex items-center justify-center text-tepco-red">
+                {m.icon}
               </div>
               <h4 className="text-sm font-bold text-gray-900 mb-1">{m.t}</h4>
               <p className="text-xs text-gray-600 leading-relaxed">{m.d}</p>
